@@ -23,6 +23,7 @@
         </BlazorWebView>
     </ContentPage>
 
+    
     <ContentPage Title="Weather">
         <BlazorWebView HostPage="wwwroot/index.html">
             <BlazorWebView.RootComponents>
