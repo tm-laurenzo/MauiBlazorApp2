@@ -1,14 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:MauiBlazorApp2"
-             x:Class="MauiBlazorApp2.MainPage"
-             BackgroundColor="{DynamicResource PageBackgroundColor}">
+<TabbedPage
+    x:Class="MauiBlazorApp2.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiBlazorApp2"
+    xmlns:pages="clr-namespace:MauiBlazorApp2.Pages"
+    BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <BlazorWebView HostPage="wwwroot/index.html">
-        <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
-        </BlazorWebView.RootComponents>
-    </BlazorWebView>
+    <ContentPage Title="Home">
+        <BlazorWebView HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent ComponentType="{x:Type pages:Index}" Selector="#app" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+    </ContentPage>
 
-</ContentPage>
+    <ContentPage Title="Counter">
+        <BlazorWebView HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent ComponentType="{x:Type pages:Counter}" Selector="#app" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+    </ContentPage>
+
+    <ContentPage Title="Weather">
+        <BlazorWebView HostPage="wwwroot/index.html">
+            <BlazorWebView.RootComponents>
+                <RootComponent ComponentType="{x:Type pages:FetchData}" Selector="#app" />
+            </BlazorWebView.RootComponents>
+        </BlazorWebView>
+    </ContentPage>
+</TabbedPage>
