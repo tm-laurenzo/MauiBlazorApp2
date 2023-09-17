@@ -5,3 +5,22 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+<button @onclick="CheckInternet">Check Network</button>
+
+@code{
+    public async void CheckInternet()
+    {
+        var hasInternet = Connectivity.NetworkAccess == NetworkAccess.Internet;
+        var type =
+            Connectivity.ConnectionProfiles?.FirstOrDefault() ??
+            ConnectionProfile.Unknown;
+
+        await MauiBlazorApp2.App.Current.MainPage.DisplayAlert(
+            title: "status",
+            message: $"Has internet: {hasInternet}, type: {type}",
+            cancel: "OK");
+
+        
+    }
+}
